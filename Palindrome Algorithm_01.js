@@ -1,4 +1,4 @@
-function checkPalindrome(a){ //check if the String a is a palindrome. returns string test "true" if so.
+function isPalindrome(a){ //check if the String a is a palindrome. returns string test "true" if so.
 	var b = a.split('');// split the string into array of char
 
 	if(b.length % 2 == 0) {// if even number of letters
@@ -18,19 +18,18 @@ function checkPalindrome(a){ //check if the String a is a palindrome. returns st
 	return 'true';
 	
 }
-//var input = [];
 
 var readline = require('readline');
 var rl = readline.createInterface(process.stdin, process.stdout);
+console.log("input text: ");
+rl.on('line', (line) => {
+	if (line.toLowerCase() === 'q') rl.close();
 
+  if (isPalindrome(line)) {
+  	console.log(`"${line}" is a palindrome :-)`)
+  } else {
+  	console.log(`"${line}" is not a palindrome :-(`)
+  }
 
-rl.question("input text: ", function(answer){
-	console.log(checkPalindrome(answer));
+	console.log("input text: ");
 });
-
-//}
-//checkPalindrome(answer);
-		//input[0] = checkPalindrome(answer);
-//for(var n = 0; n < 3; n++) {
-	//console.log(input[n]);
-//}
