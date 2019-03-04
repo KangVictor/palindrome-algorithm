@@ -4,7 +4,6 @@ function checkPalindrome(a){ //check if the String a is a palindrome. returns st
 	if(b.length % 2 == 0) {// if even number of letters
 		for(var n = 0; n < b.length/2; n++) {
 			if (b[n] != b[b.length - n - 1]) {
-				return 'false';
 			}
 		}
 	} else{// if odd number of letters
