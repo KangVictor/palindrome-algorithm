@@ -5,17 +5,13 @@
 	<title>palindrome web app</title>
 </head>
 <body>
-	<!-- text input -->
-	<!-- submit button -->
-	<!-- label -->
-	<!-- text area -->
 
-	<form action="/action_page.php">
-		Words go here: <input type="text" placeholder="words go here"><br>
-		<input type="submit" value="Submit">
+	<form action="localhost:5000/words" method="POST">
+		<input type="text" placeholder="words go here" name="words_input"><br>
+		<input type="submit" name="submit">
 	</form>
 
-	<textarea rows="4" cols="50" placeholder="example: dad is a palindrome">
+	<textarea rows="10" cols="50" placeholder="example: dad is a palindrome">
 
 	</textarea>
 

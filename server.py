@@ -1,6 +1,17 @@
-from flask import Flask
+from flask import Flask, request, url_for, redirect
 app = Flask(__name__)
 
+@app.route('/words', methods = ['POST'])
+def words():
+	if request.methods == 'POST':
+		if request.form['words_input']:
+			return 'input successful'
+		else: 
+			return 'still in'
+	else:
+		return 'wrong input'
+	return 'hello'
+
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def basic():
+	return 'hi'
