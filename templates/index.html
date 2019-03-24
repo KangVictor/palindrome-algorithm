@@ -6,7 +6,10 @@
 </head>
 <body>
 
-	<form action="localhost:5000/words" method="POST">
+	<!--
+		id = set a reference for javascript to find this element
+	-->
+	<form id="submit-words" action="/words" method="POST">
 		<input type="text" placeholder="words go here" name="words_input"><br>
 		<input type="submit" name="submit">
 	</form>
@@ -15,5 +18,17 @@
 
 	</textarea>
 
+	<script>
+		// get a reference to the form
+		const form = document.querySelector('#submit-words');
+
+		// listen for submit event
+		form.addEventListener('submit', (event) => {
+			// prevent the default behavior
+			event.preventDefault();
+
+			
+		});
+	</script>
 </body>
 </html>
