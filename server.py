@@ -1,4 +1,4 @@
-from flask import Flask, request, url_for, redirect
+from flask import Flask, request, url_for, redirect, render_template
 app = Flask(__name__)
 
 @app.route('/words', methods = ['POST'])
@@ -14,4 +14,4 @@ def words():
 
 @app.route('/')
 def basic():
-	return 'hi'
+	return render_template('index.html')
