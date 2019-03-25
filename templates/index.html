@@ -14,7 +14,7 @@
 		<input type="submit" name="submit">
 	</form>
 
-	<textarea rows="10" cols="50" placeholder="example: dad is a palindrome">
+	<textarea id = "MyTextArea" rows="10" cols="50" placeholder="example: dad is a palindrome">
 
 	</textarea>
 
@@ -26,16 +26,18 @@
 		form.addEventListener('submit', (event) => {
 			// prevent the default behavior
 			event.preventDefault();
-			fetch('')
+			const url = "localhost:5000/words";
+			fetch(url)
 			.then((response) => {
 				return response.json();
 			})
 			.then((data) => {
-				// implement logic here
-					// check if 'input successful'
-						// render to text area
-					// if not succesful
-						// write to console.error()
+				if (data === 'input sccessful') {
+					const myText = document.querySelector('#MyTextArea');
+					myText.innerHTML = 'input successful';
+				} else {
+					console.error("input failure");
+				}
 			})
 			.catch((error) => console.error(error));
 		});
