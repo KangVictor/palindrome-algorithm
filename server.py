@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/words', methods = ['POST'])
 def words():
-	if request.methods == 'POST':
+	if request.method == 'POST':
 		if request.form['words_input']:
 			return 'input successful'
 		else: 
