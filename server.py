@@ -6,11 +6,10 @@ def words():
 	if request.method == 'POST':
 		if request.form['words_input']:
 			return 'input successful'
-		else: 
-			return 'still in'
+		else:
+			return 'no input'
 	else:
 		return 'wrong input'
-	return 'hello'
 
 @app.route('/')
 def basic():
