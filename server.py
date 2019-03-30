@@ -1,15 +1,13 @@
-from flask import Flask, request, url_for, redirect, render_template
+from flask import Flask, request, jsonify, url_for, redirect, render_template
+import json
 app = Flask(__name__)
 
 @app.route('/words', methods = ['POST'])
 def words():
-	if request.method == 'POST':
-		if request.form['words_input']:
-			return {'foo': 'successful'}
-		else:
-			return {'foo': 'wrong input'}
-	else:
-		return {'foo': 'no input'}
+	if request.is_json:
+		words_input = request.get_json()
+		return '{"words_input": "input sccessful"}'
+	return '{"error": "expecting json"}'
 
 @app.route('/')
 def basic():
