@@ -21,23 +21,28 @@
 	<script>
 		// get a reference to the form
 		const form = document.querySelector('#submit-words');
-		const words_input = form.querySelector([name="words_input"])
+		const words_input = form.querySelector("[name=words_input]");
 		// listen for submit event
 		form.addEventListener('submit', (event) => {
 			// prevent the default behavior
 			event.preventDefault();
 			const url = '/words';
-			fetch(url, {
+			const body = JSON.stringify({words_input: words_input.value});
+			const options = {
 				method: 'POST',
-				body: JSON.stringify(words_input),
+				body,
 				headers: {//headers needed
 					"Content-Type": "application/json"
-				},
-			}).then((response) => {
+				}
+			};
+
+			fetch(url, options)
+			.then((response) => {
 				return response.json();
 			})
 			.then((data) => {
-				if (JSon.stringify(data) == 'input sccessful') {
+				const words_input = data.words_input;
+				if (words_input == 'input sccessful') {
 					const myText = document.querySelector('#MyTextArea');
 					myText.innerHTML = 'input successful';
 				} else {
