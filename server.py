@@ -5,11 +5,11 @@ app = Flask(__name__)
 def words():
 	if request.method == 'POST':
 		if request.form['words_input']:
-			return 'input successful'
+			return {'foo': 'successful'}
 		else:
-			return 'no input'
+			return {'foo': 'wrong input'}
 	else:
-		return 'wrong input'
+		return {'foo': 'no input'}
 
 @app.route('/')
 def basic():
