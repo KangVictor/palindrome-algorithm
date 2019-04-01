@@ -6,6 +6,7 @@
 </head>
 <body>
 
+
 	<!--
 		id = set a reference for javascript to find this element
 	-->
@@ -14,24 +15,30 @@
 		<input type="submit" name="submit">
 	</form>
 
+	<script src = "/palindrome/<words_input>"> </script>
+
 	<textarea id = "MyTextArea" rows="10" cols="50" placeholder="example: dad is a palindrome">
 
 	</textarea>
 
+	<!--send to server -->
 	<script>
 		// get a reference to the form
 		const form = document.querySelector('#submit-words');
-		const words_input = form.querySelector("[name=words_input]");
+		// get a reference to the textarea
+		const myText = document.querySelector('#MyTextArea');
 		// listen for submit event
 		form.addEventListener('submit', (event) => {
+
 			// prevent the default behavior
-			event.preventDefault();
+			if (check){
+				event.preventDefault();
 			const url = '/words';
 			const body = JSON.stringify({words_input: words_input.value});
 			const options = {
 				method: 'POST',
 				body,
-				headers: {//headers needed
+				headers: {
 					"Content-Type": "application/json"
 				}
 			};
@@ -41,15 +48,11 @@
 				return response.json();
 			})
 			.then((data) => {
-				const words_input = data.words_input;
-				if (words_input == 'input sccessful') {
-					const myText = document.querySelector('#MyTextArea');
-					myText.innerHTML = 'input successful';
-				} else {
-					console.error("input failure");
-				}
 			})
 			.catch((error) => console.error(error));
+			}
+			event.preventDefault();
+			
 		});
 	</script>
 </body>
