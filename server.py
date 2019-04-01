@@ -15,7 +15,7 @@ def words():
 		
 	return '{"error": "expecting json"}'
 
-@app.route('/palindrome/<words_input>')
+@app.route('/palindrome/')
 def palindrome():
 	return render_template('Palindrome_Algorithm_02.js')
 

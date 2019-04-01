@@ -15,7 +15,7 @@
 		<input type="submit" name="submit">
 	</form>
 
-	<script src = "/palindrome/<words_input>"> </script>
+	<script src = "/palindrome/"> </script>
 
 	<textarea id = "MyTextArea" rows="10" cols="50" placeholder="example: dad is a palindrome">
 
@@ -29,30 +29,22 @@
 		const myText = document.querySelector('#MyTextArea');
 		// listen for submit event
 		form.addEventListener('submit', (event) => {
-
 			// prevent the default behavior
-			if (check){
-				event.preventDefault();
-			const url = '/words';
-			const body = JSON.stringify({words_input: words_input.value});
-			const options = {
-				method: 'POST',
-				body,
-				headers: {
-					"Content-Type": "application/json"
-				}
-			};
-
-			fetch(url, options)
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-			})
-			.catch((error) => console.error(error));
-			}
 			event.preventDefault();
-			
+
+			// get the word from the input
+			const word = '';
+
+			// pass the word to our palindrome function
+			const isPalidrome = checkPalindrome(word);
+
+			if (isPalidrome) {
+				// update UI
+				// write to DB
+			} else {
+				// warn user
+				console.warn(`${word} is not a palindrome`);
+			}
 		});
 	</script>
 </body>
