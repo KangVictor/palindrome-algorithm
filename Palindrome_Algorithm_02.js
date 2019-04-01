@@ -7,5 +7,4 @@ function checkPalindrome(a){ //check if the String a is a palindrome. returns st
 		}
 	}
 	return true;
-
 }
