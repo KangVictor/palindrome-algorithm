@@ -33,14 +33,29 @@
 			event.preventDefault();
 
 			// get the word from the input
-			const word = '';
+			const word = form.querySelector("[name=words_input]").value;
 
 			// pass the word to our palindrome function
 			const isPalidrome = checkPalindrome(word);
 
 			if (isPalidrome) {
 				// update UI
+				myText.innerHTML = 'true'
 				// write to DB
+				// const url = '/words';
+				// const body = JSON.stringify({words_input: word});
+				// const options = {
+				// 	method: 'POST',
+				// 	body,
+				// 	headers: {
+				// 		"Content-Type": "application/json"
+				// 	}
+				// };
+				// fetch(url, options)
+				// .then((response) => {
+				// 	return response.json();
+				// })
+				// .catch((error) => console.error(error));
 			} else {
 				// warn user
 				console.warn(`${word} is not a palindrome`);

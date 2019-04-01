@@ -3,10 +3,9 @@ function checkPalindrome(a){ //check if the String a is a palindrome. returns st
 
 	for(var n = 0; n < b.length/2; n++) {
 		if (b[n] != b[b.length - n - 1]) {
-			return 'false';
+			return false;
 		}
 	}
-	return 'true';
+	return true;
 
 }
-console.log(checkPalindrome('heeheh'));
