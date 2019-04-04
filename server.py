@@ -2,32 +2,39 @@ from flask import Flask, request, jsonify, url_for, redirect, render_template
 import json
 app = Flask(__name__)
 
+"""
+Update palindrome DB with unique words (no duplicatrs allowed)
+
+return: True if update DB, false if duplicate found
+"""
 @app.route('/words', methods = ['POST'])
 def words():
 	if request.is_json:
+		# get our json from request
 		getWord = request.get_json()
-		print (getWord['words_input'])
-		# checks if it there is already the word 
-		
+
+		# connection to our DB
 		f = open("words_data.txt", "r")
+
+		# check for duplicates
 		read_line = ' '
 		check_exist = False
 		while read_line != '':
 			read_line = f.readline()
-			print read_line
 			if read_line == (getWord['words_input']):
 				check_exist = True
 			if read_line == (getWord['words_input'] + '\n'):
 				check_exist = True
 		f.close()
 
+		# write to DB (if duplicate word not found)
 		if check_exist != True:
 			# write words_input on words_data.txt
 			f = open("words_data.txt","a+")
 			f.write("\n%s" % getWord['words_input'])
 			f.close()
 
-	return 'true'
+	return check_exist
 
 @app.route('/palindrome/')
 def palindrome():
