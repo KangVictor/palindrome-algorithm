@@ -8,6 +8,7 @@ def words():
 		getWord = request.get_json()
 		print (getWord['words_input'])
 		# checks if it there is already the word 
+		
 		f = open("words_data.txt", "r")
 		read_line = ' '
 		check_exist = False
@@ -34,4 +35,7 @@ def palindrome():
 
 @app.route('/')
 def basic():
+	f = open("words_data.txt", "w+")
+	f.write("palindrome words")
+	f.close()
 	return render_template('index.html')
