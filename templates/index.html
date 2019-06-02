@@ -43,25 +43,7 @@
 
 			if (isPalidrome) {
 				// update UI
-				myText.innerHTML = 'true'
-				// write to DB
-				const url = '/words';
-				const body = JSON.stringify({"words_input": word});
-				const options = {
-					method: 'POST',
-					body,
-					headers: {
-						"Content-Type": "application/json"
-					}
-				};
-				fetch(url, options)
-				.then((response) => {
-					return response.json();
-				})
-				.then((data) => {
-
-				})
-				.catch((error) => console.error(error));
+				myText.innerHTML = word
 			} else {
 				// warn user
 				console.warn(`${word} is not a palindrome`);

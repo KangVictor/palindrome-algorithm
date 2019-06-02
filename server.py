@@ -33,8 +33,12 @@ def words():
 			f = open("words_data.txt","a+")
 			f.write("\n%s" % getWord['words_input'])
 			f.close()
+		if check_exist:
+			return 'true'
+		else:
+			return 'false'
+	return "input not json"
 
-	return check_exist
 
 @app.route('/palindrome/')
 def palindrome():
