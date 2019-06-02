@@ -3,28 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>palindrome web app</title>
+	<style>
+		.center {
+			display: flex;
+		}
+	</style>
 </head>
 <body>
-
-
-	<!--
-		id = set a reference for javascript to find this element
-	-->
-
-	<p> Enter Palindrome </p>
-	
-	<form id="submit-words" action="/words" method="POST">
-		<input type="text" placeholder="words go here" name="words_input"> <br>
-		<input type="submit" name="submit">
-	</form>
+	<div class="center">
+		<form id="submit-words" action="/words" method="POST">
+			<label for="words_input">Enter Palindrome</label>
+			<input type="text" placeholder="words go here" name="words_input">
+			<input type="submit" name="submit">
+		</form>
+		<textarea id="MyTextArea" rows="10" cols="50" placeholder="example: dad is a palindrome"></textarea>
+	</div>
 
 	<script src="./palindrome_algorithm.js"> </script>
-
-	<textarea id="MyTextArea" rows="10" cols="50" placeholder="example: dad is a palindrome">
-
-	</textarea>
-
-	<!--send to server -->
 	<script>
 		const palindromeModel = [];
 
