@@ -26,6 +26,16 @@
 
 	<!--send to server -->
 	<script>
+		const palindromeModel = [];
+
+		function palindromeSuccess(word) {
+			// add word to palindromeModel
+			// write palindromeModel to textarea
+		}
+
+		function palindromeFailure(word) {
+			// warn user
+		}
 		// get a reference to the form
 		const form = document.querySelector('#submit-words');
 		// get a reference to the textarea
@@ -43,9 +53,10 @@
 
 			if (isPalidrome) {
 				// update UI
-				myText.innerHTML = word
+				palindromeSuccess();
 			} else {
 				// warn user
+				palindromeFailure();
 				console.warn(`${word} is not a palindrome`);
 			}
 		});
