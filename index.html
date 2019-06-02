@@ -27,9 +27,7 @@
 			// add word to palindromeModel
 			// write palindromeModel to textarea
 			palindromeModel[palindromeModel.length] = word
-			myText.innerHtml = palindromeModel[0];
-			console.log(palindromeModel)
-			console.log(myText.innerHtml)
+			myText.innerHTML = palindromeModel;
 		}
 
 		function palindromeFailure(word) {
