@@ -6,13 +6,16 @@
 	<style>
 		.center {
 			display: flex;
+			flex-direction: column;
 		}
 	</style>
 </head>
 <body>
 	<div class="center">
 		<form id="submit-words" action="/words" method="POST">
-			<label for="words_input">Enter Palindrome</label>
+			<div>
+				<label for="words_input">Enter Palindrome</label>
+			</div>
 			<input type="text" placeholder="words go here" name="words_input">
 			<input type="submit" name="submit">
 		</form>
