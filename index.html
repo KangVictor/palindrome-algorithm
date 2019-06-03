@@ -4,20 +4,30 @@
 	<meta charset="UTF-8">
 	<title>palindrome web app</title>
 	<style>
-		.center {
+		.column {
 			display: flex;
 			flex-direction: column;
+		}
+
+		.align-center {
+			align-items: center;
+		}
+
+		.align-left {
+			align-items: end;
 		}
 	</style>
 </head>
 <body>
-	<div class="center">
+	<div class="column align-center">
 		<form id="submit-words" action="/words" method="POST">
-			<div>
-				<label for="words_input">Enter Palindrome</label>
+			<div class="column align-left">
+				<label for="words-input">Enter Palindrome</label>
+				<div class="align-left">
+					<input type="text" placeholder="words go here" name="words-input">
+				</div>
+				<input type="submit" name="submit">
 			</div>
-			<input type="text" placeholder="words go here" name="words_input">
-			<input type="submit" name="submit">
 		</form>
 		<textarea id="MyTextArea" rows="10" cols="50" placeholder="example: dad is a palindrome"></textarea>
 	</div>
@@ -47,7 +57,7 @@
 			event.preventDefault();
 
 			// get the word from the input
-			const word = form.querySelector("[name=words_input]").value;
+			const word = form.querySelector("[name=words-input]").value;
 
 			// pass the word to our palindrome function
 			const isPalidrome = checkPalindrome(word);
