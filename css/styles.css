@@ -1,0 +1,12 @@
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.align-left {
+	align-items: end;
+}
