@@ -10,3 +10,7 @@
 .align-left {
 	align-items: end;
 }
+
+.relative-font-size {
+	font-size: 2rem;
+}
